@@ -1,10 +1,10 @@
 # DROP TABLES
 
-songplay_table_drop = ""
-user_table_drop = ""
-song_table_drop = ""
-artist_table_drop = ""
-time_table_drop = ""
+songplay_table_drop = "DROP TABLE IF EXISTS songplays"
+user_table_drop = "DROP TABLE IF EXISTS users"
+song_table_drop = "DROP TABLE IF EXISTS songs"
+artist_table_drop = "DROP TABLE IF EXISTS artists"
+time_table_drop = "DROP TABLE IF EXISTS time"
 
 # CREATE TABLES
 
@@ -44,6 +44,8 @@ time_table_insert = ("""
 # FIND SONGS
 
 song_select = ("""
+SELECT song_id, artists.artist_id \
+FROM songs JOIN artists ON artists.artist_id = songs.artist_id;
 """)
 
 # QUERY LISTS
