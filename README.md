@@ -23,13 +23,13 @@ songplay_id, start_time, user_id, level, song_id, artist_id, session_id, locatio
 
 - **Dimension Tables**
 
-**- users** - users table in the app have this columns : user_id, first_name, last_name, gender, level
+**- users** : users table in the app have this columns : user_id, first_name, last_name, gender, level
 
-**- songs** - songs in music database, have these columns : song_id, title, artist_id, year, duration
+**- songs** : songs in music database, have these columns : song_id, title, artist_id, year, duration
 
-**- artists** - artists in music database, have these columns : artist_id, name, location, latitude, longitude
+**- artists** : artists in music database, have these columns : artist_id, name, location, latitude, longitude
 
-**- time** - timestamps of records in songplays broken down into specific units, have these columns : start_time, hour, day, week, month, year, weekday
+**- time** : timestamps of records in songplays broken down into specific units, have these columns : start_time, hour, day, week, month, year, weekday
 
 Please check `sql_queries.py` to see the details of data type of each columns in the tables.
 To learn more about [Data Types Postgres](https://www.postgresql.org/docs/9.5/datatype.html).
