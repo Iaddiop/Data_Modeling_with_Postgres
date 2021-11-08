@@ -16,25 +16,25 @@ The data stored in 2 directories file :
 ## Data modeling :
 We will use the relational database to modeling the data and the star schema concept, like this :
 
-**- Fact Table**
+- **Fact Table**
 
-**songplays** - records in log data associated with song plays i.e. records with page NextSong (this is important, because we will filtring data for page == NextSong), have these columns :
+**- songplays** : records in log data associated with song plays i.e. records with page NextSong (this is important, because we will filtring data for page == NextSong), have these columns :
 songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent
 
-**- Dimension Tables**
+- **Dimension Tables**
 
-**users** - users table in the app have this columns : user_id, first_name, last_name, gender, level
+**- users** - users table in the app have this columns : user_id, first_name, last_name, gender, level
 
-**songs** - songs in music database, have these columns : song_id, title, artist_id, year, duration
+**- songs** - songs in music database, have these columns : song_id, title, artist_id, year, duration
 
-**artists** - artists in music database, have these columns : artist_id, name, location, latitude, longitude
+**- artists** - artists in music database, have these columns : artist_id, name, location, latitude, longitude
 
-**time** - timestamps of records in songplays broken down into specific units, have these columns : start_time, hour, day, week, month, year, weekday
+**- time** - timestamps of records in songplays broken down into specific units, have these columns : start_time, hour, day, week, month, year, weekday
 
 Please check `sql_queries.py` to see the details of data type of each columns in the tables.
 To learn more about [Data Types Postgres](https://www.postgresql.org/docs/9.5/datatype.html).
 
-## How to run the project :
+## How to run python scripts :
 - Description of the files contents :
 `sql_queries.py` : content all queries that we need to create, to drop and insert data in the tables.
 `create_table.py` : using sql_queries module to make connection with the database, create and drop the tables.
@@ -43,4 +43,4 @@ To learn more about [Data Types Postgres](https://www.postgresql.org/docs/9.5/da
 - To run this project, please folowing the below steps :
     - create tables first : run `create_table.py`
     - then lanch the etl : run `etl.py` to process data (extract, ttansform and insert data to the tables)
-    - to test the integration of the data : run `test.ipynb` on the jupyther notebook 
+    - to test the integration of the data : run `test.ipynb` on Jupyter Notebook 
