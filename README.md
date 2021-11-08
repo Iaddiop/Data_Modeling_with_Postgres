@@ -19,26 +19,20 @@ We will use the relational database to modeling the data and the star schema con
 **- Fact Table**
 
 **songplays** - records in log data associated with song plays i.e. records with page NextSong (this is important, because we will filtring data for page == NextSong), have these columns :
-
 songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent
 
 **- Dimension Tables**
 
-**users** - users table in the app have this columns :
+**users** - users table in the app have this columns : user_id, first_name, last_name, gender, level
 
-user_id, first_name, last_name, gender, level
+**songs** - songs in music database, have these columns : song_id, title, artist_id, year, duration
 
-**songs** - songs in music database, have these columns
+**artists** - artists in music database, have these columns : artist_id, name, location, latitude, longitude
 
-song_id, title, artist_id, year, duration
+**time** - timestamps of records in songplays broken down into specific units, have these columns : start_time, hour, day, week, month, year, weekday
 
-**artists** - artists in music database, have these columns :
-
-artist_id, name, location, latitude, longitude
-
-**time** - timestamps of records in songplays broken down into specific units, have these columns :
-
-start_time, hour, day, week, month, year, weekday
+Please check `sql_queries.py` to see the details of data type of each columns in the tables.
+To learn more about [Data Types Postgres](https://www.postgresql.org/docs/9.5/datatype.html).
 
 ## How to run the project :
 - Description of the files contents :
