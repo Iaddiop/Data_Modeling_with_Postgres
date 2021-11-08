@@ -3,7 +3,7 @@ In this project, we will explain how to load JSON files to a [Posgres database](
 JSON data comes from logs (songs in the streaming app and user data of that app) on the music streaming app called Sparkify.
 The database will be used later on analytical dashboards (marketing, financial ...) to understand user behavior and usage habits.
 
-Different stages will be taken in this project:
+Different steps will be taken in this project:
 - Build SQL statements that will be used to create and insert data into tables
 - Build an ETL pipeline to feed the data from the log files to the Sparkify database.
 - Finally, data integration test in the database.
@@ -17,17 +17,27 @@ The data stored in 2 directories file :
 We will use the relational database to modeling the data and the star schema concept, like this :
 
 **- Fact Table**
-**songplays** - records in log data associated with song plays i.e. records with page NextSong (this is important, because we will filtring data for page == NextSong)
+
+**songplays** - records in log data associated with song plays i.e. records with page NextSong (this is important, because we will filtring data for page == NextSong), have these columns :
+
 songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent
 
 **- Dimension Tables**
-**users** - users table in the app
+
+**users** - users table in the app have this columns :
+
 user_id, first_name, last_name, gender, level
-**songs** - songs in music database
+
+**songs** - songs in music database, have these columns
+
 song_id, title, artist_id, year, duration
-**artists** - artists in music database
+
+**artists** - artists in music database, have these columns :
+
 artist_id, name, location, latitude, longitude
-**time** - timestamps of records in songplays broken down into specific units
+
+**time** - timestamps of records in songplays broken down into specific units, have these columns :
+
 start_time, hour, day, week, month, year, weekday
 
 ## How to run the project :
