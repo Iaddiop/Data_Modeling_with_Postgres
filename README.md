@@ -51,3 +51,4 @@ To learn more about [Data Types Postgres](https://www.postgresql.org/docs/9.5/da
 ### References :
 - Issue : psycopg2: can't adapt type 'numpy.int64' ref to : https://stackoverflow.com/questions/50626058/psycopg2-cant-adapt-type-numpy-int64
 - Convert timestamp : https://www.postgresql.org/docs/9.5/datatype-datetime.html
+- Schema picture : generated with DBSchema software : https://dbschema.com/?AFFILIATE=96594&__c=1
