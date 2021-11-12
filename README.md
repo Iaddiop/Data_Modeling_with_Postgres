@@ -16,6 +16,8 @@ The data stored in 2 directories file :
 ## Data modeling :
 We will use the relational database to modeling the data and the star schema concept, like this :
 
+![image info](./Schema.png)
+
 - **Fact Table**
 
 **- songplays** : song plays (we will filtring data for page == NextSong), have these columns :
@@ -32,7 +34,7 @@ songplay_id, start_time, user_id, level, song_id, artist_id, session_id, locatio
 **- time** : timestamps of records in songplays broken down into specific units, have these columns : start_time, hour, day, week, month, year, weekday
 
 Please check `sql_queries.py` to see the details of data type of each columns in the tables.
-To learn more about [Data Types Postgres](https://www.postgresql.org/docs/9.5/datatype.html).
+To learn more about [Data Types Postgres](https://www.postgresql.org/docs/9.5/datatype.html). 
 
 ## How to run python scripts :
 - Description of the files contents :
@@ -41,10 +43,10 @@ To learn more about [Data Types Postgres](https://www.postgresql.org/docs/9.5/da
 `etl.py`: the etl pipeline that extract all JSON log files, transmort (format some data as datetime), filtring data, extract all infromation that we need to inset into the tables.
 
 - To run this project, please folowing the below steps :
-    - create tables first : run `create_table.py`
+    - create tables first : run `create_table.py` 
     - then lanch the etl : run `etl.py` to process data (extract, ttansform and insert data to the tables)
-    - to test the integration of the data : run `test.ipynb` on Jupyter Notebook
-
+    - to test the integration of the data : run `test.ipynb` on Jupyter Notebook 
+    
 
 ### References :
 - Issue : psycopg2: can't adapt type 'numpy.int64' ref to : https://stackoverflow.com/questions/50626058/psycopg2-cant-adapt-type-numpy-int64
