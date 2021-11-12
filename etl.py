@@ -9,11 +9,21 @@ from psycopg2.extensions import register_adapter, AsIs
 psycopg2.extensions.register_adapter(np.int64, psycopg2._psycopg.AsIs) # to handle this error i use this post on Stackoverflow : https://stackoverflow.com/questions/50626058/psycopg2-cant-adapt-type-numpy-int64
 
 def process_song_file(cur, filepath):
+    """
+    Description : this function will be serve to 2 tasks :
+        - read JSON song log files from the path of the directory of the data.
+        - insert data to song table and artist table, using pandas loc fonction and convert rows to the list of items
+    
+    Arguments :
+        - cur : psycopg2 cursor object
+        - filepath : directory of songs log files
+        
+    """
     # open song file
     df = pd.read_json(filepath, lines=True)
 
     # insert song record
-    song_data = df[['num_songs', 'title', 'artist_id', 'year', 'duration']].loc[0].tolist()
+    song_data = df[['song_id', 'title', 'artist_id', 'year', 'duration']].loc[0].tolist()
     cur.execute(song_table_insert, song_data)
     
     # insert artist record
@@ -22,6 +32,17 @@ def process_song_file(cur, filepath):
 
 
 def process_log_file(cur, filepath):
+    """
+    Description : this function will be serve to 3 task :
+        - read JSON log files from the path of the directory of the data.
+        - Filtring data by the "NextSong" action in page column
+        - Convert timestamp column to datetime by using to_datetime function of pandas labrairy
+        - insert data into user table and songplay table, using pandas loc fonction and convert rows to the list of items
+    
+    Arguments :
+        - cur : psycopg2 cursor object
+        - filepath : directory of log files
+    """
     # open log file
     df = pd.read_json(filepath, lines=True)
 
@@ -73,6 +94,17 @@ def process_log_file(cur, filepath):
 
 
 def process_data(cur, conn, filepath, func):
+    """
+    Description : this function will be serve to 2 tasks:
+        - Get all files matching extension ".json" from the path directory using glob and OS librairies.
+        - Iterate over all files that we get in the directory and process to the extraction of the data
+    
+    Arguments :
+        - cur : psycopg2 cursor object
+        - conn : connection to the database
+        - filepath : directory of log files
+        - func : function that get all files (transformed in list of rows) and insert in to the tables
+    """
     # get all files matching extension from directory
     all_files = []
     for root, dirs, files in os.walk(filepath):
